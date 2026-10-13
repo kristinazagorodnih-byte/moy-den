@@ -17,7 +17,7 @@
         ]},
         { "date": "2026-10-13", "dow": "Вт", "items": [
           { "id": "d13-s", "type": "stories", "where": "IG", "title": "Сторис «Свобода», 3 кадра + вопрос-стикер «Чего боишься больше всего?»", "note": "", "done": false },
-          { "id": "d13-t", "type": "post", "where": "Telegram", "title": "Пост в Telegram: тёплый текст про свободу профессии 🔔", "note": "", "done": false }
+          { "id": "d13-t", "type": "post", "where": "Telegram", "title": "Пост в Telegram: тёплый текст про свободу профессии 🔔", "note": "Опубликован 13.10 в 17:00", "done": true }
         ]},
         { "date": "2026-10-14", "dow": "Ср", "items": [
           { "id": "d14-r", "type": "reel", "where": "IG", "title": "Рилс: миф о профессии («обучение за 3 часа»)", "note": "", "done": false },
