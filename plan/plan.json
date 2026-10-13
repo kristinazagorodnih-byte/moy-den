@@ -1,0 +1,37 @@
+{
+  "week": { "start": "2026-10-12", "label": "12-18 октября" },
+  "goal": "Рост аудитории. Метрика недели: новые подписчики и сохранения.",
+  "targets": [
+    { "key": "post", "label": "Посты", "target": 3 },
+    { "key": "reel", "label": "Рилс", "target": 2 },
+    { "key": "stories", "label": "Сторис", "target": 5 }
+  ],
+  "days": [
+    { "date": "2026-10-12", "dow": "Пн", "items": [
+      { "id": "d12-r", "type": "reel", "where": "IG", "title": "Рилс «Свой график / свобода»", "note": "Перенесён на свободное окно", "done": false },
+      { "id": "d12-s", "type": "stories", "where": "IG", "title": "Сторис «Свобода»", "note": "Перенесено на вторник", "done": false }
+    ]},
+    { "date": "2026-10-13", "dow": "Вт", "items": [
+      { "id": "d13-s", "type": "stories", "where": "IG", "title": "Сторис «Свобода», 3 кадра + вопрос-стикер «Чего боишься больше всего?»", "note": "", "done": false },
+      { "id": "d13-t", "type": "post", "where": "Telegram", "title": "Пост в Telegram: тёплый текст про свободу профессии 🔔", "note": "", "done": false }
+    ]},
+    { "date": "2026-10-14", "dow": "Ср", "items": [
+      { "id": "d14-r", "type": "reel", "where": "IG", "title": "Рилс: миф о профессии («обучение за 3 часа»)", "note": "", "done": false },
+      { "id": "d14-s", "type": "stories", "where": "IG", "title": "Сторис: за кадром, будни работы", "note": "", "done": false }
+    ]},
+    { "date": "2026-10-15", "dow": "Чт", "items": [
+      { "id": "d15-c", "type": "post", "where": "IG", "title": "Карусель: путь ученицы (кейс Елены)", "note": "", "done": false },
+      { "id": "d15-t", "type": "post", "where": "Telegram", "title": "Пост в Telegram: подробнее про обучение 🔔", "note": "", "done": false },
+      { "id": "d15-s", "type": "stories", "where": "IG", "title": "Сторис: разбор ответов на вопрос-стикер", "note": "", "done": false }
+    ]},
+    { "date": "2026-10-16", "dow": "Пт", "items": [
+      { "id": "d16-s", "type": "stories", "where": "IG", "title": "Сторис: личное, свобода графика в пятницу", "note": "", "done": false }
+    ]},
+    { "date": "2026-10-17", "dow": "Сб", "items": [
+      { "id": "d17-s", "type": "stories", "where": "IG", "title": "Сторис: мягкое приглашение (подпишись / сохрани)", "note": "", "done": false }
+    ]},
+    { "date": "2026-10-18", "dow": "Вс", "items": [
+      { "id": "d18-x", "type": "rest", "where": "", "title": "Отдых от сторис. Разбор недели и подготовка контента", "note": "", "done": false }
+    ]}
+  ]
+}

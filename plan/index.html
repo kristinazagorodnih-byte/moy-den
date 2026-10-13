@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Контент-неделя</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<style>
+  :root{
+    --emerald:#0A3A2E;
+    --milk:#F7F2E8;
+    --gold:#B8945A;
+    --ink:#1C1C1A;
+    --pink:#E84D8A;
+    --emerald-soft:#14503E;
+    --line:rgba(10,58,46,.14);
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    font-family:'Golos Text',system-ui,sans-serif;
+    background:var(--milk);
+    color:var(--ink);
+    line-height:1.4;
+    padding:16px 16px calc(28px + env(safe-area-inset-bottom)) 16px;
+    max-width:620px;margin:0 auto;
+  }
+  h1,h2,h3{font-family:'Playfair Display',Georgia,serif;margin:0;font-weight:600}
+
+  .head{margin-bottom:14px}
+  .kicker{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:600}
+  h1{font-size:26px;color:var(--emerald);margin-top:4px;line-height:1.1}
+  .week{font-size:15px;color:var(--emerald);opacity:.75;margin-top:4px;font-weight:500}
+  .goal{
+    margin-top:12px;background:var(--emerald);color:var(--milk);
+    padding:12px 14px;font-size:13.5px;
+  }
+  .goal b{color:#fff}
+
+  /* counters */
+  .counters{display:flex;gap:10px;margin:16px 0 8px}
+  .counter{flex:1;background:#fff;border:1px solid var(--line);padding:11px 10px}
+  .counter .lab{font-size:12px;color:var(--emerald);font-weight:600;text-transform:uppercase;letter-spacing:.04em}
+  .counter .num{font-family:'Playfair Display',serif;font-size:22px;color:var(--ink);margin-top:3px}
+  .counter .num small{font-size:14px;opacity:.5;font-weight:500}
+  .counter.full .num{color:var(--emerald)}
+  .bar{height:5px;background:var(--line);margin-top:8px;overflow:hidden}
+  .bar > i{display:block;height:100%;background:var(--gold);width:0;transition:width .35s}
+  .counter.full .bar > i{background:var(--emerald)}
+
+  .legend{font-size:11.5px;color:var(--ink);opacity:.55;margin:2px 0 18px}
+
+  /* days */
+  .day{border-top:1px solid var(--line);padding:14px 0}
+  .day:last-child{border-bottom:1px solid var(--line)}
+  .dhead{display:flex;align-items:baseline;gap:9px;margin-bottom:10px}
+  .ddow{font-family:'Playfair Display',serif;font-size:18px;color:var(--emerald)}
+  .ddate{font-size:12.5px;color:var(--ink);opacity:.5}
+  .dtag{margin-left:auto;font-size:11px;font-weight:600;padding:3px 9px;letter-spacing:.03em}
+  .dtag.today{background:var(--pink);color:#fff}
+  .dtag.past{background:transparent;color:var(--gold);border:1px solid var(--gold)}
+  .day.past{opacity:.72}
+  .day.today{background:rgba(184,148,90,.08);margin:0 -16px;padding-left:16px;padding-right:16px}
+
+  .item{display:flex;gap:11px;align-items:flex-start;padding:9px 0;cursor:pointer;user-select:none}
+  .item + .item{border-top:1px dashed var(--line)}
+  .check{
+    flex:none;width:22px;height:22px;border:1.8px solid var(--emerald);border-radius:50%;
+    margin-top:1px;display:flex;align-items:center;justify-content:center;
+    font-size:13px;color:#fff;transition:.15s;background:transparent;
+  }
+  .item.done .check{background:var(--emerald);border-color:var(--emerald)}
+  .item.done .check::after{content:"✓"}
+  .ibody{flex:1;min-width:0}
+  .ftype{display:inline-block;font-size:10.5px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;padding:2px 7px;margin-bottom:4px}
+  .ftype.post{background:var(--emerald);color:var(--milk)}
+  .ftype.reel{background:var(--gold);color:#fff}
+  .ftype.stories{background:#fff;color:var(--emerald);border:1px solid var(--emerald)}
+  .ftype.rest{background:transparent;color:var(--gold);border:1px dashed var(--gold)}
+  .where{font-size:10.5px;color:var(--ink);opacity:.45;margin-left:6px;letter-spacing:.03em}
+  .ititle{font-size:14px;color:var(--ink)}
+  .item.done .ititle{text-decoration:line-through;opacity:.5}
+  .inote{font-size:12px;color:var(--pink);margin-top:3px;font-weight:500}
+  .inote.plain{color:var(--ink);opacity:.5;font-weight:400}
+
+  .foot{margin-top:22px;text-align:center}
+  .reset{background:transparent;border:1px solid var(--line);color:var(--emerald);font-family:inherit;
+    font-size:12.5px;padding:9px 16px;cursor:pointer}
+  .credit{margin-top:14px;font-size:11px;color:var(--ink);opacity:.4}
+  .err{background:#fff;border:1px solid var(--pink);color:var(--pink);padding:14px;font-size:13px}
+</style>
+</head>
+<body>
+<div id="app"><div class="head"><div class="kicker">Контент</div><h1>Загружаю неделю…</h1></div></div>
+
+<script>
+(function(){
+  "use strict";
+  try{ if(window.Telegram&&Telegram.WebApp){Telegram.WebApp.ready();Telegram.WebApp.expand();} }catch(e){}
+
+  var TYPE_LABEL={post:"Пост",reel:"Рилс",stories:"Сторис",rest:"Отдых"};
+
+  function todayStr(){
+    // МСК (UTC+3) дата, чтобы совпадало с планом
+    var n=new Date(Date.now()+3*3600*1000);
+    return n.toISOString().slice(0,10);
+  }
+  function lsKey(week){return "contentweek:"+week;}
+  function loadDone(week){
+    try{var r=localStorage.getItem(lsKey(week));return r?JSON.parse(r):{};}catch(e){return {};}
+  }
+  function saveDone(week,map){
+    try{localStorage.setItem(lsKey(week),JSON.stringify(map));}catch(e){}
+  }
+
+  var STATE=null, DONE={}, TODAY=todayStr();
+
+  function render(){
+    var d=STATE;
+    var app=document.getElementById("app");
+    var html="";
+
+    html+='<div class="head"><div class="kicker">Контент-неделя</div>'+
+          '<h1>Моя неделя</h1>'+
+          '<div class="week">'+esc(d.week.label)+'</div>'+
+          '<div class="goal">🎯 <b>Цель:</b> '+esc(d.goal)+'</div></div>';
+
+    // counts
+    var counts={};
+    (d.targets||[]).forEach(function(t){counts[t.key]={done:0,total:0,target:t.target,label:t.label};});
+    d.days.forEach(function(day){
+      day.items.forEach(function(it){
+        if(!counts[it.type])return;
+        counts[it.type].total++;
+        if(DONE[it.id])counts[it.type].done++;
+      });
+    });
+    html+='<div class="counters">';
+    (d.targets||[]).forEach(function(t){
+      var c=counts[t.key];var done=c.done;var tgt=c.target;
+      var pct=tgt?Math.min(100,Math.round(done/tgt*100)):0;
+      var full=done>=tgt&&tgt>0?" full":"";
+      html+='<div class="counter'+full+'"><div class="lab">'+esc(t.label)+'</div>'+
+            '<div class="num">'+done+' <small>/ '+tgt+'</small></div>'+
+            '<div class="bar"><i style="width:'+pct+'%"></i></div></div>';
+    });
+    html+='</div>';
+    html+='<div class="legend">Нажми на дело, чтобы отметить «сделано». Счётчик сверху считает за неделю.</div>';
+
+    // days
+    d.days.forEach(function(day){
+      var cls="day";
+      var tag="";
+      if(day.date===TODAY){cls+=" today";tag='<span class="dtag today">сегодня</span>';}
+      else if(day.date<TODAY){cls+=" past";tag='<span class="dtag past">прошло</span>';}
+      html+='<div class="'+cls+'">';
+      html+='<div class="dhead"><span class="ddow">'+esc(day.dow)+'</span>'+
+            '<span class="ddate">'+fmtDate(day.date)+'</span>'+tag+'</div>';
+      day.items.forEach(function(it){
+        var done=!!DONE[it.id];
+        var noteCls=(it.note&&/перенес|отдых/i.test(it.note))?"inote":"inote plain";
+        html+='<div class="item'+(done?" done":"")+'" data-id="'+esc(it.id)+'">'+
+              '<div class="check"></div><div class="ibody">'+
+              '<span class="ftype '+it.type+'">'+esc(TYPE_LABEL[it.type]||it.type)+'</span>'+
+              (it.where?'<span class="where">'+esc(it.where)+'</span>':'')+
+              '<div class="ititle">'+esc(it.title)+'</div>'+
+              (it.note?'<div class="'+noteCls+'">'+esc(it.note)+'</div>':'')+
+              '</div></div>';
+      });
+      html+='</div>';
+    });
+
+    html+='<div class="foot"><button class="reset" id="reset">Сбросить галочки</button>'+
+          '<div class="credit">План ведёт Аркадий 🪄 Обновляется каждую неделю</div></div>';
+
+    app.innerHTML=html;
+
+    Array.prototype.forEach.call(document.querySelectorAll(".item"),function(el){
+      el.addEventListener("click",function(){
+        var id=el.getAttribute("data-id");
+        DONE[id]=!DONE[id];
+        if(!DONE[id])delete DONE[id];
+        saveDone(STATE.week.start,DONE);
+        render();
+      });
+    });
+    var rb=document.getElementById("reset");
+    if(rb)rb.addEventListener("click",function(){
+      DONE={};saveDone(STATE.week.start,DONE);render();
+    });
+  }
+
+  function fmtDate(iso){
+    var p=iso.split("-");return p[2]+"."+p[1];
+  }
+  function esc(s){return String(s==null?"":s).replace(/[&<>"]/g,function(c){
+    return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c];});}
+
+  fetch("plan.json?_="+Date.now())
+    .then(function(r){if(!r.ok)throw new Error(r.status);return r.json();})
+    .then(function(data){
+      STATE=data;
+      DONE=loadDone(STATE.week.start);
+      render();
+    })
+    .catch(function(e){
+      document.getElementById("app").innerHTML=
+        '<div class="head"><div class="kicker">Контент-неделя</div><h1>Моя неделя</h1></div>'+
+        '<div class="err">Не удалось загрузить план ('+esc(e.message)+'). Закрой и открой страницу заново через пару секунд.</div>';
+    });
+})();
+</script>
+</body>
+</html>
