@@ -2,15 +2,14 @@
   "today": {
     "dayType": "soyuznaya",
     "focus": [
-      { "id": "f1", "title": "Выложить рилс «свой график / свобода» (15-20 сек)", "done": false },
-      { "id": "f2", "title": "Сторис: свобода, 3 кадра + вопрос-стикер", "done": false },
-      { "id": "f3", "title": "Снять Урок 3 мини-курса (в свободное окно)", "done": false }
+      { "id": "f1", "title": "Снять и выложить сторис «Свобода» (3 кадра + вопрос-стикер)", "done": false },
+      { "id": "f2", "title": "Снять Урок 3 мини-курса (в свободное окно)", "done": false }
     ],
     "schedule": [
-      { "id": "s1", "time": "07:45", "end": "08:00", "title": "Выход с Ксенией на автобус", "category": "family", "note": "Александр работает", "done": false },
-      { "id": "s2", "time": "15:15", "end": "17:00", "title": "Ксюша на художке (графика)", "category": "family", "note": "", "done": false },
-      { "id": "s3", "time": "17:00", "end": "", "title": "Забрать Ксюшу с художки", "category": "family", "note": "", "done": false },
-      { "id": "s4", "time": "19:30", "end": "20:30", "title": "Ксюша на танцах", "category": "family", "note": "Александр отвозит", "done": false }
+      { "id": "s1", "time": "09:30", "end": "", "title": "Работа, студия на Союзной", "category": "client", "note": "", "done": false },
+      { "id": "s2", "time": "15:15", "end": "16:45", "title": "Ксюша на лепке", "category": "family", "note": "", "done": false },
+      { "id": "s3", "time": "17:00", "end": "", "title": "Забрать Ксюшу с лепки", "category": "family", "note": "Забирают Валерия или Никита", "done": false },
+      { "id": "s4", "time": "17:00", "end": "", "title": "Вернуться на работу", "category": "client", "note": "", "done": false }
     ],
     "tasks": [
       { "id": "t1", "title": "Короткая тренировка до 15 минут", "done": false },
