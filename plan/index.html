@@ -30,7 +30,7 @@
   }
   h1,h2,h3{font-family:'Playfair Display',Georgia,serif;margin:0;font-weight:600}
 
-  .head{margin-bottom:14px}
+  .head{margin-bottom:12px}
   .kicker{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:600}
   h1{font-size:26px;color:var(--emerald);margin-top:4px;line-height:1.1}
   .week{font-size:15px;color:var(--emerald);opacity:.75;margin-top:4px;font-weight:500}
@@ -39,6 +39,14 @@
     padding:12px 14px;font-size:13.5px;
   }
   .goal b{color:#fff}
+
+  /* week tabs */
+  .tabs{display:flex;gap:8px;margin:14px 0 2px;flex-wrap:wrap}
+  .tab{
+    font-family:inherit;font-size:13px;font-weight:600;border:1px solid var(--line);
+    background:#fff;color:var(--emerald);padding:8px 13px;cursor:pointer;white-space:nowrap;
+  }
+  .tab.active{background:var(--emerald);color:var(--milk);border-color:var(--emerald)}
 
   /* counters */
   .counters{display:flex;gap:10px;margin:16px 0 8px}
@@ -104,9 +112,12 @@
   var TYPE_LABEL={post:"Пост",reel:"Рилс",stories:"Сторис",rest:"Отдых"};
 
   function todayStr(){
-    // МСК (UTC+3) дата, чтобы совпадало с планом
-    var n=new Date(Date.now()+3*3600*1000);
+    var n=new Date(Date.now()+3*3600*1000); // МСК
     return n.toISOString().slice(0,10);
+  }
+  function addDays(iso,n){
+    var p=iso.split("-");var d=new Date(Date.UTC(+p[0],+p[1]-1,+p[2]));
+    d.setUTCDate(d.getUTCDate()+n);return d.toISOString().slice(0,10);
   }
   function lsKey(week){return "contentweek:"+week;}
   function loadDone(week){
@@ -116,22 +127,42 @@
     try{localStorage.setItem(lsKey(week),JSON.stringify(map));}catch(e){}
   }
 
-  var STATE=null, DONE={}, TODAY=todayStr();
+  var WEEKS=[], IDX=0, DONE={}, TODAY=todayStr();
+
+  function pickWeek(){
+    // неделя, в которую попадает сегодня; иначе ближайшая будущая; иначе последняя
+    for(var i=0;i<WEEKS.length;i++){
+      var w=WEEKS[i];var last=addDays(w.start,6);
+      if(TODAY>=w.start && TODAY<=last) return i;
+    }
+    for(var j=0;j<WEEKS.length;j++){ if(WEEKS[j].start>TODAY) return j; }
+    return WEEKS.length-1;
+  }
 
   function render(){
-    var d=STATE;
+    var w=WEEKS[IDX];
+    DONE=loadDone(w.start);
     var app=document.getElementById("app");
     var html="";
 
     html+='<div class="head"><div class="kicker">Контент-неделя</div>'+
           '<h1>Моя неделя</h1>'+
-          '<div class="week">'+esc(d.week.label)+'</div>'+
-          '<div class="goal">🎯 <b>Цель:</b> '+esc(d.goal)+'</div></div>';
+          '<div class="week">'+esc(w.label)+(w.core?' · '+esc(w.core):'')+'</div>'+
+          '<div class="goal">🎯 <b>Цель:</b> '+esc(w.goal)+'</div></div>';
+
+    // week tabs
+    if(WEEKS.length>1){
+      html+='<div class="tabs">';
+      WEEKS.forEach(function(ww,i){
+        html+='<button class="tab'+(i===IDX?' active':'')+'" data-wk="'+i+'">'+esc(ww.label)+'</button>';
+      });
+      html+='</div>';
+    }
 
     // counts
     var counts={};
-    (d.targets||[]).forEach(function(t){counts[t.key]={done:0,total:0,target:t.target,label:t.label};});
-    d.days.forEach(function(day){
+    (w.targets||[]).forEach(function(t){counts[t.key]={done:0,total:0,target:t.target,label:t.label};});
+    w.days.forEach(function(day){
       day.items.forEach(function(it){
         if(!counts[it.type])return;
         counts[it.type].total++;
@@ -139,7 +170,7 @@
       });
     });
     html+='<div class="counters">';
-    (d.targets||[]).forEach(function(t){
+    (w.targets||[]).forEach(function(t){
       var c=counts[t.key];var done=c.done;var tgt=c.target;
       var pct=tgt?Math.min(100,Math.round(done/tgt*100)):0;
       var full=done>=tgt&&tgt>0?" full":"";
@@ -151,9 +182,8 @@
     html+='<div class="legend">Нажми на дело, чтобы отметить «сделано». Счётчик сверху считает за неделю.</div>';
 
     // days
-    d.days.forEach(function(day){
-      var cls="day";
-      var tag="";
+    w.days.forEach(function(day){
+      var cls="day";var tag="";
       if(day.date===TODAY){cls+=" today";tag='<span class="dtag today">сегодня</span>';}
       else if(day.date<TODAY){cls+=" past";tag='<span class="dtag past">прошло</span>';}
       html+='<div class="'+cls+'">';
@@ -173,37 +203,40 @@
       html+='</div>';
     });
 
-    html+='<div class="foot"><button class="reset" id="reset">Сбросить галочки</button>'+
+    html+='<div class="foot"><button class="reset" id="reset">Сбросить галочки недели</button>'+
           '<div class="credit">План ведёт Аркадий 🪄 Обновляется каждую неделю</div></div>';
 
     app.innerHTML=html;
 
+    Array.prototype.forEach.call(document.querySelectorAll(".tab"),function(el){
+      el.addEventListener("click",function(){IDX=+el.getAttribute("data-wk");render();});
+    });
     Array.prototype.forEach.call(document.querySelectorAll(".item"),function(el){
       el.addEventListener("click",function(){
         var id=el.getAttribute("data-id");
         DONE[id]=!DONE[id];
         if(!DONE[id])delete DONE[id];
-        saveDone(STATE.week.start,DONE);
+        saveDone(WEEKS[IDX].start,DONE);
         render();
       });
     });
     var rb=document.getElementById("reset");
     if(rb)rb.addEventListener("click",function(){
-      DONE={};saveDone(STATE.week.start,DONE);render();
+      DONE={};saveDone(WEEKS[IDX].start,DONE);render();
     });
   }
 
-  function fmtDate(iso){
-    var p=iso.split("-");return p[2]+"."+p[1];
-  }
+  function fmtDate(iso){var p=iso.split("-");return p[2]+"."+p[1];}
   function esc(s){return String(s==null?"":s).replace(/[&<>"]/g,function(c){
     return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c];});}
 
   fetch("plan.json?_="+Date.now())
     .then(function(r){if(!r.ok)throw new Error(r.status);return r.json();})
     .then(function(data){
-      STATE=data;
-      DONE=loadDone(STATE.week.start);
+      // поддержка и нового (weeks[]), и старого (один week) формата
+      if(data.weeks && data.weeks.length){ WEEKS=data.weeks; }
+      else { WEEKS=[{start:(data.week&&data.week.start)||TODAY,label:(data.week&&data.week.label)||"Неделя",goal:data.goal,core:data.core,targets:data.targets,days:data.days}]; }
+      IDX=pickWeek();
       render();
     })
     .catch(function(e){
