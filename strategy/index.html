@@ -10,88 +10,79 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Golos+Text:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --emerald:#124C3A;
-    --emerald-soft:#1C6B51;
-    --pink:#E84D8A;
-    --pink-soft:#FBE4EE;
-    --purple:#6B4E9E;
-    --ink:#1D1B1A;
-    --muted:#6E6A66;
-    --paper:#FFFBF7;
-    --card:#FFFFFF;
-    --line:#ECE5DD;
-    --gold:#B8945A;
+    --emerald:#124C3A;--emerald-soft:#1C6B51;--pink:#E84D8A;--pink-soft:#FBE4EE;
+    --purple:#6B4E9E;--ink:#1D1B1A;--muted:#6E6A66;--paper:#FFFBF7;--card:#FFFFFF;
+    --line:#ECE5DD;--gold:#B8945A;
   }
   *{box-sizing:border-box}
   html,body{margin:0;padding:0}
-  body{
-    background:var(--paper);
-    color:var(--ink);
-    font-family:"Golos Text",system-ui,sans-serif;
-    font-size:16px;line-height:1.5;
-    padding:0 16px 60px;
-    -webkit-font-smoothing:antialiased;
-  }
-  .wrap{max-width:720px;margin:0 auto}
+  body{background:var(--paper);color:var(--ink);font-family:"Golos Text",system-ui,sans-serif;font-size:16px;line-height:1.5;padding:0 15px 70px;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:730px;margin:0 auto}
   h1,h2,h3{font-family:"Playfair Display",Georgia,serif;font-weight:700;line-height:1.15;margin:0}
-  .hero{
-    margin:22px 0 10px;padding:26px 22px;border-radius:22px;
-    background:linear-gradient(145deg,var(--emerald),var(--emerald-soft));
-    color:#fff;position:relative;overflow:hidden;
-  }
+  .hero{margin:20px 0 10px;padding:26px 22px;border-radius:22px;background:linear-gradient(145deg,var(--emerald),var(--emerald-soft));color:#fff;overflow:hidden}
   .hero .kicker{font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.75;font-weight:600}
-  .hero h1{font-size:30px;margin:8px 0 10px}
+  .hero h1{font-size:29px;margin:8px 0 10px}
   .hero h1 em{font-style:italic;color:#FFC9DE}
   .hero p{margin:0;opacity:.92;font-size:14.5px}
-  .hero .goalrow{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
-  .goalrow .chip{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);padding:9px 13px;border-radius:13px;font-size:13px}
-  .goalrow .chip b{display:block;font-size:17px;font-family:"Playfair Display",serif}
-  .note{
-    margin:12px 0;padding:13px 15px;border-radius:14px;
-    background:var(--pink-soft);border:1px solid #F3C9DC;color:#8A2956;font-size:13.5px;
-  }
+  .goalrow{display:flex;gap:9px;margin-top:16px;flex-wrap:wrap}
+  .goalrow .chip{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);padding:9px 12px;border-radius:13px;font-size:12.5px}
+  .goalrow .chip b{display:block;font-size:16px;font-family:"Playfair Display",serif;margin-top:2px}
+  .note{margin:12px 0;padding:13px 15px;border-radius:14px;background:var(--pink-soft);border:1px solid #F3C9DC;color:#8A2956;font-size:13.5px}
   .note b{color:#6E1B41}
-  section{margin:26px 0}
-  .sec-h{display:flex;align-items:center;gap:9px;margin-bottom:12px}
+  .note.warn{background:#FFF7F0;border-color:#F0D9C4;color:#7A5B1E}
+  .note.warn b{color:#5E4310}
+  section{margin:24px 0}
+  .sec-h{display:flex;align-items:center;gap:9px;margin-bottom:11px}
   .sec-h .n{font-family:"Playfair Display",serif;font-size:13px;font-weight:700;color:#fff;background:var(--pink);width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex:0 0 auto}
-  .sec-h h2{font-size:21px}
-  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 17px;margin:10px 0;box-shadow:0 2px 10px rgba(18,76,58,.04)}
-  .model{display:grid;grid-template-columns:1fr;gap:10px}
-  .mrow{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:13px 15px}
-  .mrow .t{font-weight:600}
-  .mrow .d{font-size:12.5px;color:var(--muted);margin-top:3px;max-width:none}
-  .mrow .v{font-family:"Playfair Display",serif;font-weight:700;color:var(--emerald);font-size:17px;white-space:nowrap}
-  .total{background:linear-gradient(145deg,var(--emerald),var(--emerald-soft));color:#fff;border:none}
-  .total .v{color:#FFC9DE}
-  .funnel{display:grid;grid-template-columns:1fr;gap:0}
-  .step{display:flex;gap:13px;padding:13px 0;border-bottom:1px dashed var(--line)}
-  .step:last-child{border-bottom:none}
-  .step .ic{flex:0 0 38px;height:38px;border-radius:11px;background:var(--pink-soft);color:var(--pink);display:flex;align-items:center;justify-content:center;font-size:19px}
-  .step .st{font-weight:600}
-  .step .sd{font-size:13px;color:var(--muted);margin-top:2px}
-  table{width:100%;border-collapse:collapse;font-size:13.5px}
-  th,td{text-align:left;padding:9px 8px;border-bottom:1px solid var(--line);vertical-align:top}
-  th{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:700}
+  .sec-h h2{font-size:20px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:15px 16px;margin:10px 0;box-shadow:0 2px 10px rgba(18,76,58,.04)}
+  .card.lead{border-left:4px solid var(--pink)}
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  th,td{text-align:left;padding:8px 7px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);font-weight:700}
   td .pr{font-family:"Playfair Display",serif;font-weight:700;color:var(--emerald);white-space:nowrap}
-  .tag{display:inline-block;font-size:11px;padding:2px 8px;border-radius:999px;background:var(--pink-soft);color:#8A2956;font-weight:600}
+  tr.hi td{background:var(--pink-soft)}
+  .tag{display:inline-block;font-size:10.5px;padding:2px 7px;border-radius:999px;background:var(--pink-soft);color:#8A2956;font-weight:600;white-space:nowrap}
   .tag.dev{background:#FCEFD8;color:#8A6410}
-  .road{position:relative;margin-left:8px;padding-left:22px}
-  .road:before{content:"";position:absolute;left:4px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--pink),var(--emerald))}
-  .mo{position:relative;margin:0 0 16px}
-  .mo:before{content:"";position:absolute;left:-22px;top:4px;width:11px;height:11px;border-radius:50%;background:var(--pink);border:2px solid #fff;box-shadow:0 0 0 2px var(--pink)}
-  .mo .mh{font-family:"Playfair Display",serif;font-weight:700;font-size:16px;color:var(--emerald)}
-  .mo .mg{font-size:12px;color:var(--pink);font-weight:600;margin:1px 0 5px}
-  .mo ul{margin:0;padding-left:17px}
-  .mo li{font-size:13.5px;margin:3px 0}
+  .tag.em{background:#E0EFE9;color:var(--emerald)}
+  .model .mrow{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin:8px 0}
+  .mrow .t{font-weight:600}
+  .mrow .d{font-size:12px;color:var(--muted);margin-top:3px}
+  .mrow .v{font-family:"Playfair Display",serif;font-weight:700;color:var(--emerald);font-size:16px;white-space:nowrap}
+  .mrow.total{background:linear-gradient(145deg,var(--emerald),var(--emerald-soft));color:#fff;border:none}
+  .mrow.total .v{color:#FFC9DE}
+  .mrow.total .d{color:rgba(255,255,255,.8)}
+  .funnel .step{display:flex;gap:12px;padding:11px 0;border-bottom:1px dashed var(--line)}
+  .funnel .step:last-child{border-bottom:none}
+  .funnel .ic{flex:0 0 34px;height:34px;border-radius:10px;background:var(--pink-soft);color:var(--pink);display:flex;align-items:center;justify-content:center;font-size:17px}
+  .funnel .st{font-weight:600;font-size:14.5px}
+  .funnel .sd{font-size:12.5px;color:var(--muted);margin-top:2px}
+  .inrow{display:flex;gap:8px;flex-wrap:wrap;margin:4px 0 2px}
+  .inrow .w{background:var(--emerald);color:#fff;font-weight:700;font-size:12px;padding:5px 11px;border-radius:999px}
   ul.clean{list-style:none;padding:0;margin:0}
-  ul.clean li{padding:8px 0 8px 26px;position:relative;font-size:14px;border-bottom:1px solid var(--line)}
+  ul.clean li{padding:7px 0 7px 24px;position:relative;font-size:13.5px;border-bottom:1px solid var(--line)}
   ul.clean li:last-child{border-bottom:none}
-  ul.clean li:before{content:"→";position:absolute;left:4px;color:var(--pink);font-weight:700}
+  ul.clean li:before{content:"→";position:absolute;left:3px;color:var(--pink);font-weight:700}
   .fix li:before{content:"✓";color:var(--emerald)}
-  .risk{background:#FFF7F0;border:1px solid #F0D9C4}
-  .risk li:before{content:"!";color:var(--gold);font-weight:800}
-  .foot{text-align:center;color:var(--muted);font-size:12px;margin-top:30px}
+  .msg{background:#F6FBF9;border:1px solid #DCEBE4;border-radius:12px;padding:11px 13px;margin:8px 0;font-size:13px}
+  .msg .lab{font-size:11px;font-weight:700;color:var(--emerald);text-transform:uppercase;letter-spacing:.05em;display:block;margin-bottom:4px}
+  .road{position:relative;margin-left:7px;padding-left:21px}
+  .road:before{content:"";position:absolute;left:4px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--pink),var(--emerald))}
+  .mo{position:relative;margin:0 0 15px}
+  .mo:before{content:"";position:absolute;left:-21px;top:4px;width:10px;height:10px;border-radius:50%;background:var(--pink);border:2px solid #fff;box-shadow:0 0 0 2px var(--pink)}
+  .mo .mh{font-family:"Playfair Display",serif;font-weight:700;font-size:15.5px;color:var(--emerald)}
+  .mo .mg{font-size:11.5px;color:var(--pink);font-weight:600;margin:1px 0 4px}
+  .mo ul{margin:0;padding-left:16px}
+  .mo li{font-size:13px;margin:3px 0}
+  .mo .cp{font-size:11.5px;color:var(--muted);margin-top:4px;font-style:italic}
+  .strong{background:linear-gradient(145deg,#2A1240,#45246B);color:#fff;border:none}
+  .strong .sec-h h2{color:#fff}
+  .strong ul.clean li{border-color:rgba(255,255,255,.14);color:#EFE7F7}
+  .strong ul.clean li:before{content:"✦";color:#FFC9DE}
+  .strong h2{color:#fff}
+  .foot{text-align:center;color:var(--muted);font-size:12px;margin-top:28px}
   .foot b{color:var(--emerald)}
+  .src{font-size:11.5px;color:var(--muted);margin-top:6px;font-style:italic}
 </style>
 </head>
 <body>
@@ -100,122 +91,221 @@
   <div class="hero">
     <div class="kicker">Стратегия роста · Кристина Загородних</div>
     <h1>Путь к <em>300 000 ₽</em> в месяц</h1>
-    <p>Система на 6 месяцев: с 1 ноября 2026 к стабильному доходу к весне 2027. Максимум-ориентир 500к.</p>
+    <p>Система на 6 месяцев: 1 ноября 2026 → 30 апреля 2027. Каждую неделю приходят заявки на обучение.</p>
     <div class="goalrow">
-      <div class="chip">Сейчас<b>~100 000 ₽</b>клиентки</div>
-      <div class="chip">Цель<b>300 000 ₽</b>в месяц</div>
-      <div class="chip">Срок<b>6 месяцев</b>ноя 26 → апр 27</div>
+      <div class="chip">Старт<b>~100 000 ₽</b>клиентки</div>
+      <div class="chip">Базовый<b>≈233 000 ₽</b>к апрелю</div>
+      <div class="chip">Амбициозный<b>≈300 000 ₽</b>стретч-цель</div>
     </div>
   </div>
 
   <div class="note">
-    <b>Честно про цифры.</b> Это стратегия и ориентиры, а не гарантия дохода. Результат зависит от исполнения, цен и конверсии. Цифры ниже, это цель-сценарий, к которому строим систему, а не обещание.
+    <b>Честно про цифры.</b> Это стратегия и ориентиры, не гарантия дохода. Базовый сценарий к апрелю ≈233к, 300к, это амбициозный (8 учениц/мес + полный салон). Реальный расклад покажут ноябрь и декабрь, план по ходу правим.
   </div>
 
   <section>
     <div class="sec-h"><div class="n">1</div><h2>Главная мысль</h2></div>
-    <div class="card">
-      300к растут <b>не</b> из большего числа клиенток, ты ограничена руками и временем. Они растут из двух рычагов: <b>возврат стабильного потока учениц</b> (офлайн-обучение) и <b>запуск платной онлайн-базы</b>, которая продаётся без твоих рук. Клиентки и контент приводят людей и греют, а деньги приносят продукты с нормальным чеком.
+    <div class="card lead">
+      300к растут <b>не</b> из большего числа клиенток, ты ограничена руками и временем. Они растут из двух рычагов: <b>офлайн-группы по 3 человека на конкретную дату</b> (за учебный день в 2,5 раза выгоднее индивидуальных) и <b>стабильный поток заявок</b> на обучение. Клиентки держат финансовую базу, контент и Авито приводят людей, деньги приносят группы и премиум.
     </div>
   </section>
 
   <section>
-    <div class="sec-h"><div class="n">2</div><h2>Модель дохода к 6-му месяцу</h2></div>
-    <div class="model">
-      <div class="mrow"><div><div class="t">Клиентки (ресницы)</div><div class="d">Держим базу, позже аккуратно поднимаем чек и чуть разгружаем время под обучение</div></div><div class="v">~90к</div></div>
-      <div class="mrow"><div><div class="t">Офлайн-обучение</div><div class="d">2-3 ученицы в месяц, ядро дохода. Напр. Эксперт 50к или VIP 90к</div></div><div class="v">~120к</div></div>
-      <div class="mrow"><div><div class="t">Онлайн-продукты</div><div class="d">Мини-курс 490 как вход в воронку + запуски платной онлайн-базы</div></div><div class="v">~80к</div></div>
-      <div class="mrow total"><div><div class="t">Цель-сценарий</div><div class="d" style="color:rgba(255,255,255,.8)">При условии: поток заявок налажен и онлайн-база вышла</div></div><div class="v">~290к</div></div>
-    </div>
-  </section>
-
-  <section>
-    <div class="sec-h"><div class="n">3</div><h2>Воронка: путь человека</h2></div>
-    <div class="card funnel">
-      <div class="step"><div class="ic">👀</div><div><div class="st">Заметить</div><div class="sd">Рилс, сторис, Instagram, TikTok. Цепляем ситуацией, мифом, свободой профессии</div></div></div>
-      <div class="step"><div class="ic">💛</div><div><div class="st">Поверить</div><div class="sd">Карусели, посты, Telegram-канал, кейсы учениц, обучение изнутри</div></div></div>
-      <div class="step"><div class="ic">🤔</div><div><div class="st">Решиться</div><div class="sd">Бот @lash_start_kris_bot, гайд «15 причин», ответы на страхи</div></div></div>
-      <div class="step"><div class="ic">✨</div><div><div class="st">Попробовать → купить</div><div class="sd">Бесплатный пробный по субботам, мини-курс 490, затем офлайн или онлайн-база</div></div></div>
-    </div>
-  </section>
-
-  <section>
-    <div class="sec-h"><div class="n">4</div><h2>Продукты и цены</h2></div>
+    <div class="sec-h"><div class="n">2</div><h2>Три сценария к апрелю</h2></div>
     <div class="card" style="padding:8px 12px">
       <table>
-        <tr><th>Продукт</th><th>Формат</th><th>Цена</th></tr>
-        <tr><td>Бесплатный пробный <span class="tag">вход</span></td><td>1 час, студия</td><td class="pr">0 ₽</td></tr>
-        <tr><td>Мини-курс «Я попробую дома»</td><td>онлайн, 3 урока</td><td class="pr">490 ₽</td></tr>
-        <tr><td>Я только посмотрю</td><td>1 день</td><td class="pr">15 000 ₽</td></tr>
-        <tr><td>Экспресс</td><td>2 дня</td><td class="pr">20–25 000 ₽</td></tr>
-        <tr><td>Универсальный</td><td>3 дня</td><td class="pr">25–30 000 ₽</td></tr>
-        <tr><td>Эксперт</td><td>5 дней</td><td class="pr">50 000 ₽</td></tr>
-        <tr><td>VIP + наставничество</td><td>9 дней</td><td class="pr">90 000 ₽</td></tr>
-        <tr><td>Онлайн-база для новичков <span class="tag dev">в разработке</span></td><td>онлайн, с проверкой работ</td><td class="pr">уточнить</td></tr>
+        <tr><th>Сценарий</th><th>Офлайн/мес</th><th>Заявок/мес</th><th>Доход в апреле</th></tr>
+        <tr><td>Консервативный</td><td>3</td><td>20</td><td class="pr">≈134к</td></tr>
+        <tr class="hi"><td>Базовый <span class="tag em">цель</span></td><td>6</td><td>40</td><td class="pr">≈233к</td></tr>
+        <tr><td>Амбициозный</td><td>8</td><td>55</td><td class="pr">≈307к</td></tr>
       </table>
     </div>
-    <div class="note" style="margin-top:12px">Цена онлайн-базы ещё не определена. <b>Предполагаю</b> рабочий диапазон 9 900–19 900 ₽ за тариф с проверкой работ, но это гипотеза: подтвердим спросом (предзапись, опрос в сторис) перед стартом.</div>
+    <div class="src">Заявки при конверсии 20% (сейчас 1 из 5). Поднимем явку на пробный с 40% до 60%, заявок нужно на треть меньше.</div>
   </section>
 
   <section>
-    <div class="sec-h"><div class="n">5</div><h2>Дорожная карта, 6 месяцев</h2></div>
+    <div class="sec-h"><div class="n">3</div><h2>Сегменты и кому что продаём</h2></div>
+    <div class="card" style="padding:8px 12px">
+      <table>
+        <tr><th>Кто</th><th>Что купит</th><th>Вход</th><th>Контент</th></tr>
+        <tr><td>Мамы в декрете</td><td>Экспресс/Универсальный, группа, рассрочка</td><td>ДОМА → пробный</td><td class="pr">35%</td></tr>
+        <tr><td>Женщины 25-40 в найме</td><td>Эксперт, VIP+</td><td>пробный, тест</td><td class="pr">25%</td></tr>
+        <tr><td>Студентки 18-24</td><td>Экспресс, группа, рассрочка</td><td>ДОМА, тест</td><td class="pr">20%</td></tr>
+        <tr><td>Мастера со слабой базой</td><td>повышение квалификации ~10к</td><td>директ, разборы</td><td class="pr">10%</td></tr>
+        <tr><td>Девушки 16-20</td><td>мини-курс; обучение с родителями</td><td>ДОМА, тест</td><td class="pr">10%</td></tr>
+      </table>
+    </div>
+    <div class="src">Деньги ближайших месяцев, мамы и женщины 25-40. Мастеров со слабой базой подключаем с 3-го месяца через разборы ошибок.</div>
+  </section>
+
+  <section>
+    <div class="sec-h"><div class="n">4</div><h2>Продуктовая линейка</h2></div>
+    <div class="card" style="padding:8px 12px">
+      <table>
+        <tr><th>Продукт</th><th>Роль</th><th>Цена</th><th>Чистыми</th></tr>
+        <tr><td>Пробный урок</td><td>вход</td><td class="pr">0 ₽</td><td>—</td></tr>
+        <tr><td>Я попробую дома</td><td>вход онлайн</td><td class="pr">490 ₽</td><td>≈450</td></tr>
+        <tr><td>Я только посмотрю (1 дн)</td><td>основной</td><td class="pr">15 000</td><td>≈10 800</td></tr>
+        <tr class="hi"><td>Экспресс, группа 3 (2 дн)</td><td>основной</td><td class="pr">20 000</td><td>≈15 400</td></tr>
+        <tr class="hi"><td>Универсальный, группа 3 (3 дн)</td><td>основной</td><td class="pr">25 000</td><td>≈20 000</td></tr>
+        <tr><td>Эксперт, индив (5 дн)</td><td>премиум</td><td class="pr">50 000</td><td>≈43 000</td></tr>
+        <tr><td>VIP+ наставничество</td><td>премиум</td><td class="pr">90 000</td><td>≈79 800</td></tr>
+        <tr><td>Для мастеров</td><td>доход с мастеров</td><td class="pr">10 000</td><td>≈6 200</td></tr>
+      </table>
+    </div>
+    <div class="src">«Чистыми» = цена минус налог 4%, комиссия 4%, материалы 3 000 ₽ (допущения). Основа набора, Экспресс и Универсальный в группе на конкретную дату.</div>
+  </section>
+
+  <section>
+    <div class="sec-h"><div class="n">5</div><h2>Средний чек онлайн: проверяем спрос</h2></div>
     <div class="card">
-      <div class="road">
-        <div class="mo"><div class="mh">Ноябрь · Фундамент</div><div class="mg">Поток заявок + подготовка</div>
-          <ul><li>Рост аудитории: контент по плану, рилс и сторис системно</li><li>Запуск воронки: бот, пробные по субботам, рассылка, Авито</li><li>Зафиксировать и поднять цены на обучение</li><li>Начать собирать онлайн-базу (структура + съёмка)</li></ul></div>
-        <div class="mo"><div class="mh">Декабрь · Первые продажи</div><div class="mg">Пробные → офлайн</div>
-          <ul><li>Стабильные пробные каждую субботу → первые офлайн-ученицы</li><li>Дособрать онлайн-базу и мини-курс (оплата Prodamus + доступ)</li><li>Проверить спрос на онлайн-базу: предзапись, опрос</li></ul></div>
-        <div class="mo"><div class="mh">Январь–Февраль · Запуск онлайн</div><div class="mg">Масштаб без рук</div>
-          <ul><li>Первый запуск платной онлайн-базы по циклу прогрева</li><li>2 ученицы в месяц офлайн</li><li>Кейсы первых учениц → в контент на доверие</li></ul></div>
-        <div class="mo"><div class="mh">Март–Апрель · Выход на цель</div><div class="mg">Система работает</div>
-          <ul><li>2-3 офлайн-ученицы в месяц + регулярные онлайн-продажи</li><li>Повтор запусков онлайн-базы, рост чека</li><li>Ориентир: стабильные ~300к в месяц</li></ul></div>
+      Между 490 ₽ и 15 000 ₽ пусто, а девушкам из других городов после мини-курса идти некуда. Продукт создаём <b>только после проверки спроса</b>, не раньше:
+      <ul class="clean" style="margin-top:8px">
+        <li><b>Декабрь:</b> включаем тарифы мини-курса «С проверкой» 1 300 ₽ и «С наставником» 1 930 ₽. Берут, значит готовы платить за обратную связь</li>
+        <li><b>Январь:</b> лист ожидания «Напиши БАЗА, если хочешь продолжить онлайн», без оплаты и дат</li>
+        <li><b>Февраль:</b> 30+ в листе → предзапись с честной датой. Условия возврата заранее проверяет юрист. Продукт делаем после первых оплат</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-h"><div class="n">6</div><h2>Воронка: 3 входа, одна цель</h2></div>
+    <div class="card">
+      <div class="inrow"><span class="w">ПРОБНЫЙ</span><span class="w">тест</span><span class="w">ДОМА</span></div>
+      <div class="src" style="margin-bottom:8px">Тула → бесплатный пробный. Другие города → мини-курс. Всё ведёт к группе на конкретную дату.</div>
+      <div class="funnel">
+        <div class="step"><div class="ic">1</div><div><div class="st">Контент</div><div class="sd">рилс, карусели, Telegram, Авито. Один призыв на публикацию</div></div></div>
+        <div class="step"><div class="ic">2</div><div><div class="st">Первый контакт</div><div class="sd">написала слово / прошла тест. Ответить в тот же день, лучше за 2 часа, спросить город</div></div></div>
+        <div class="step"><div class="ic">3</div><div><div class="st">Заявка</div><div class="sd">записать в трекер: имя, город, откуда, связь по согласию</div></div></div>
+        <div class="step"><div class="ic">4</div><div><div class="st">Пробный урок</div><div class="sd">до 3 человек. Подтверждение, напоминание накануне и за 2 часа (делает бот)</div></div></div>
+        <div class="step"><div class="ic">5</div><div><div class="st">Предложение</div><div class="sd">на уроке: группа на конкретную дату, программа по дням, рассрочка</div></div></div>
+        <div class="step"><div class="ic">6</div><div><div class="st">Обучение + сопровождение</div><div class="sd">кейс и отзыв с разрешения, просьба порекомендовать</div></div></div>
+        <div class="step"><div class="ic">7</div><div><div class="st">Возврат</div><div class="sd">пришла, но не купила: через 7 дней польза, через 30 дней в следующую группу</div></div></div>
       </div>
     </div>
   </section>
 
   <section>
-    <div class="sec-h"><div class="n">6</div><h2>Что мешало и что чиним</h2></div>
+    <div class="sec-h"><div class="n">7</div><h2>Готовые сообщения для явки</h2></div>
     <div class="card">
-      <p style="margin:0 0 10px;font-size:14px">Обучение встало с июля, потому что <b>нет стабильного потока заявок</b>. Это и есть точка роста. Чиним так:</p>
-      <ul class="clean fix">
-        <li>Бот-квалификатор ведёт людей к пробному и собирает заявки</li>
-        <li>Пробные по субботам, понятный и регулярный вход</li>
-        <li>Рассылка тёплой базе (Авито, личка) + пост в канал</li>
-        <li>Контент на рост: мягкий прогрев, а не постоянный «пробный»</li>
-        <li>Гайд «15 причин» как лид-магнит для сомневающихся</li>
-      </ul>
+      <div class="msg"><span class="lab">Накануне урока</span>Привет! Завтра в [время] жду тебя на пробном уроке. Ответь одним словом «иду», чтобы я подготовила твоё место. Если не получается, напиши, перенесём.</div>
+      <div class="msg"><span class="lab">Через 7 дней, если не купила</span>Привет! Как ты после пробного урока? Если захочешь потренироваться дома, вот подсказка: [один совет]. Появятся вопросы про обучение, пиши.</div>
+      <div class="msg"><span class="lab">Через 30 дней</span>Привет! Набираю группу на [дата], до 3 человек. Если ещё думаешь про ресницы, расскажу программу и про рассрочку. Если сейчас не время, это нормально.</div>
     </div>
   </section>
 
   <section>
-    <div class="sec-h"><div class="n">7</div><h2>Честные условия и риски</h2></div>
-    <div class="card risk">
-      <ul class="clean risk">
-        <li>300к за 6 месяцев амбициозно. Реально при двух условиях: поток заявок налажен и онлайн-база вышла</li>
-        <li>Клиентки конкурируют за время с обучением. Будем балансировать: меньше низких по чеку часов, больше высоких</li>
-        <li>Онлайн-база обещает постановку руки только с проверкой работ. Без этого, честно скромнее в обещаниях</li>
-        <li>Без обещаний дохода ученицам. Только реальные кейсы с контекстом</li>
-      </ul>
+    <div class="sec-h"><div class="n">8</div><h2>Честные ответы на возражения</h2></div>
+    <div class="card" style="padding:8px 12px">
+      <table>
+        <tr><th>Возражение</th><th>Ответ по сути</th></tr>
+        <tr><td>«Дорого, деньги семейные»</td><td>Сумма серьёзная, поэтому сначала бесплатный пробный, а на тарифы есть рассрочка</td></tr>
+        <tr><td>«А вдруг не моё»</td><td>Нормальный вопрос. Проверь за вечер дома или на пробном, до оплаты</td></tr>
+        <tr><td>«Боюсь не оправдать ожидание клиентки»</td><td>На клиентку выходишь не сразу: сначала манекен, потом модели, я вижу руки каждой</td></tr>
+        <tr><td>«Останусь одна после курса»</td><td>Конкретно что входит в сопровождение по тарифу</td></tr>
+        <tr><td>«Рынок переполнен»</td><td>Конкуренция есть. Клиенток держат носка и сервис, этому и учу. Очереди не обещаю</td></tr>
+      </table>
     </div>
   </section>
 
   <section>
-    <div class="sec-h"><div class="n">8</div><h2>Первые шаги, ноябрь</h2></div>
+    <div class="sec-h"><div class="n">9</div><h2>Контент-система</h2></div>
     <div class="card">
-      <ul class="clean">
-        <li>Запустить рассылку и пост в канал на бота (на этой неделе)</li>
-        <li>Довести бота: уроки мини-курса + оплата Prodamus + закрытый канал доступа</li>
-        <li>Решить цены на обучение на ноябрь (держим или поднимаем)</li>
-        <li>Собрать структуру онлайн-базы и план съёмки</li>
-        <li>Контент-план ноября под рост + первые мягкие приглашения</li>
+      <b>Три типа контента:</b>
+      <ul class="clean" style="margin-top:6px">
+        <li><b>Привлекающий</b> (новые люди): рилс, карусель. Призыв ДОМА, сохранить, переслать</li>
+        <li><b>Вовлекающий</b> (доверие): Telegram, карусели, сторис. Сохранить, ответить, свой страх</li>
+        <li><b>Продающий</b> (заявки): Telegram, сторис, рилс. ПРОБНЫЙ или ДОМА. Усиливается волнами за 2 недели до группы</li>
       </ul>
+    </div>
+    <div class="card" style="padding:8px 12px">
+      <table>
+        <tr><th>День</th><th>Что</th></tr>
+        <tr><td>Пн</td><td>Рилс (IG+TikTok+VK) · Авито поднять</td></tr>
+        <tr><td>Вт</td><td>Сторис + пост Telegram 🔔</td></tr>
+        <tr><td>Ср</td><td>Рилс · карусель (пост в VK)</td></tr>
+        <tr><td>Чт</td><td>Карусель/история + пост Telegram 🔔</td></tr>
+        <tr><td>Пт</td><td>Рилс (ошибка/сравнение/разбор)</td></tr>
+        <tr><td>Сб</td><td>Сторис: работа, ученицы, закулисье 🔔 Telegram</td></tr>
+        <tr><td>Вс</td><td>Без сторис. Разбор недели, лёгкий рилс/приглашение</td></tr>
+      </table>
+    </div>
+    <div class="src">14 рубрик: ошибки новичка, мифы, почему не получается после базы, признаки слабой базы, как не надо, чего не объяснили, страхи, как не откладывать, совет дня, лайфхак, проще, история ученицы, X или Y, разбор заблуждения.</div>
+  </section>
+
+  <section>
+    <div class="sec-h"><div class="n">10</div><h2>Дорожная карта, 6 месяцев</h2></div>
+    <div class="card">
+      <div class="road">
+        <div class="mo"><div class="mh">Ноябрь · Фундамент</div><div class="mg">Запуск воронки и мини-курса</div>
+          <ul><li>Мини-курс «Я попробую дома» + трекер заявок</li><li>Напоминания на явку с первого дня (бот)</li><li>Набор декабрьской группы с 17.11</li></ul>
+          <div class="cp">Контроль 30.11: 10+ заявок и явка 50%+ → продолжаем. Офлайн 2, мини-курс 15</div></div>
+        <div class="mo"><div class="mh">Декабрь · Первая группа</div><div class="mg">Проверка спроса на онлайн</div>
+          <ul><li>Провести группу</li><li>Тарифы мини-курса 1 300 и 1 930 ₽</li><li>Набор январской группы</li></ul>
+          <div class="cp">Контроль 31.12: 15+ заявок → базовый. Офлайн 3, мастера 1, мини-курс 20</div></div>
+        <div class="mo"><div class="mh">Январь · Лист ожидания</div><div class="mg">Пройти праздники без провала</div>
+          <ul><li>Группа во 2-й половине января</li><li>Запуск «Напиши БАЗА»</li><li>Кейсы декабрьской группы</li></ul>
+          <div class="cp">Контроль 31.01: 15+ в листе ожидания. Офлайн 3, мастера 1</div></div>
+        <div class="mo"><div class="mh">Февраль · Две группы</div><div class="mg">Масштаб</div>
+          <ul><li>Две даты групп</li><li>Решение по онлайн-продукту (30+ → предзапись)</li><li>Решение по воронке мастеров</li></ul>
+          <div class="cp">Контроль 28.02: 25+ заявок. Офлайн 4, мастера 1</div></div>
+        <div class="mo"><div class="mh">Март · Лучший канал</div><div class="mg">Рост чека</div>
+          <ul><li>Больше формата с лучшими словами на 1000</li><li>Предзапись онлайн-продукта</li><li>Премиум-ученица 25-40</li></ul>
+          <div class="cp">Контроль 31.03: личный доход 200к+ → к амбициозному. Офлайн 5, мастера 2</div></div>
+        <div class="mo"><div class="mh">Апрель · Система</div><div class="mg">Второе направление бизнеса</div>
+          <ul><li>Итоги 6 месяцев по KPI</li><li>План на май-октябрь</li><li>Цифры для бухгалтера по лимиту ИП</li></ul>
+          <div class="cp">Контроль 30.04: по каждому каналу «продолжаем / меняем / стоп». Офлайн 6, мастера 2</div></div>
+      </div>
     </div>
   </section>
 
-  <div class="foot">Черновик стратегии от <b>Аркадия</b> · обновляется по ходу · 14.10.2026</div>
+  <section>
+    <div class="sec-h"><div class="n">11</div><h2>Главные показатели (KPI)</h2></div>
+    <div class="card" style="padding:8px 12px">
+      <table>
+        <tr><th>Показатель</th><th>Старт</th><th>Цель апреля</th></tr>
+        <tr><td>Заявки в месяц</td><td>5</td><td class="pr">40</td></tr>
+        <tr><td>Явка на пробный</td><td>40%</td><td class="pr">60%</td></tr>
+        <tr class="hi"><td>Заявка → оплата</td><td>20%</td><td class="pr">30%</td></tr>
+        <tr><td>Мини-курс, продаж/мес</td><td>0</td><td class="pr">40</td></tr>
+        <tr><td>Выручка обучения/мес</td><td>50 000</td><td class="pr">≈220 000</td></tr>
+      </table>
+    </div>
+    <div class="src">Трекер: дата · имя · город · откуда · слово · связь+согласие · пробный · пришла · купила+тариф · следующий шаг. Главное: доля заявок, дошедших до оплаты.</div>
+  </section>
+
+  <section>
+    <div class="sec-h"><div class="n">12</div><h2>Рабочая неделя (2-3 часа в день)</h2></div>
+    <div class="card" style="padding:8px 12px">
+      <table>
+        <tr><th>Когда</th><th>Что</th><th>Время</th></tr>
+        <tr><td>Каждый день</td><td>ответить на заявки, трекер</td><td>30 мин</td></tr>
+        <tr><td>Пн-Сб</td><td>сторис</td><td>20 мин</td></tr>
+        <tr><td>Каждый день</td><td>монтаж/текст на завтра</td><td>60-90 мин</td></tr>
+        <tr><td>Раз в неделю</td><td>съёмка: 3 рилс, фото, закулисье</td><td>2-3 ч</td></tr>
+        <tr><td>Воскресенье</td><td>разбор недели + план</td><td>40 мин</td></tr>
+      </table>
+    </div>
+    <div class="src">В дни смены в салоне минимум: ответить на заявки, 2-3 кадра сторис, выложить готовый рилс. Больше ничего.</div>
+  </section>
+
+  <div class="card note warn">
+    <b>Запасной канал.</b> Telegram ограничен с 10.02.2026, поэтому заявка не должна жить только там. При первом контакте спрашиваем, где удобнее связь (VK, телефон, Telegram), дублируем запись в VK, уроки мини-курса держим ещё и в закрытых видео VK.
+  </div>
+
+  <section class="card strong">
+    <div class="sec-h"><div class="n" style="background:#FFC9DE;color:#45246B">+</div><h2>Что усилил Аркадий</h2></div>
+    <ul class="clean fix">
+      <li>Привязал план к тому, что уже работает: бот @lash_start_kris_bot живой, пробные по субботам, рассылка и пост в канал запущены. Напоминания на явку делает бот автоматически</li>
+      <li>Ноябрь перегружен (риск отмечен в доке): дроблю по неделям и по правилу трёх дел в день, без гонки и вины</li>
+      <li>Честный нюанс по группам: набрать 3 человека на дату в ноябре при 10 заявках сложно. Первые группы допускаем 1-2 человека или индивидуальный старт, группы растут с потоком</li>
+      <li>Зависимость: мини-курс к 1.11 ещё не готов (уроки + Prodamus + доступ). Реально запуск в середине ноября, в плане это учтём, чтобы дата была честной</li>
+      <li>Единый источник: эта страница + контент-доска + «Мой день» синхронны, твои два документа сохранил в справочник как основу</li>
+    </ul>
+  </section>
+
+  <div class="foot">Единая стратегия от <b>Аркадия</b> на основе твоих документов · живой черновик · 14.10.2026</div>
 </div>
-<script>
-  try{var t=window.Telegram&&window.Telegram.WebApp;if(t){t.ready();t.expand();}}catch(e){}
-</script>
+<script>try{var t=window.Telegram&&window.Telegram.WebApp;if(t){t.ready();t.expand();}}catch(e){}</script>
 </body>
 </html>
