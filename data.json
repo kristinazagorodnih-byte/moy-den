@@ -7,7 +7,8 @@
   ],
   "schedule": [
     {"id": "s1", "time": "09:00", "end": "", "title": "Завтрак", "category": "personal", "note": "", "done": false},
-    {"id": "s2", "time": "10:00", "end": "14:00", "title": "Онлайн-работа: прогрев, сторис, съёмка рилс", "category": "content", "note": "Реквизит дома, снимаем Блок А", "done": false},
+    {"id": "s2", "time": "10:00", "end": "", "title": "Клиентка в «Мерси»", "category": "client", "note": "", "done": false},
+    {"id": "s5", "time": "12:30", "end": "15:00", "title": "Онлайн-работа: прогрев, сторис, съёмка рилс", "category": "content", "note": "Реквизит дома, снимаем Блок А (≈20 мин)", "done": false},
     {"id": "s3", "time": "15:15", "end": "16:45", "title": "Ксюша художка (гуашь)", "category": "family", "note": "Забирает Александр, он выходной", "done": false},
     {"id": "s4", "time": "17:30", "end": "", "title": "Клиентка на снятие", "category": "client", "note": "«Мерси»", "done": false}
   ],
