@@ -1,19 +1,18 @@
 { "today": {
-  "dayType": "merci",
+  "dayType": "soyuznaya",
   "focus": [
-    {"id": "f1", "title": "Снять Блок А рилс: пинцеты, клей + лунка, палетка, диски (всё дома)", "done": false},
-    {"id": "f2", "title": "Прогрев и сторис онлайн + сторис-доверие из «Мерси»", "done": false},
-    {"id": "f3", "title": "Авито на контроле: рассылка сделана, при ответе зову на пробный", "done": false}
+    {"id": "f1", "title": "Пробный урок 12:00: провести, мягко довести до следующего шага", "done": false},
+    {"id": "f2", "title": "Сторис: свобода/личное, как профессия даёт свой график", "done": false},
+    {"id": "f3", "title": "Доснять рилс Блока А, если вчера не вышло", "done": false}
   ],
   "schedule": [
-    {"id": "s1", "time": "09:00", "end": "", "title": "Завтрак", "category": "personal", "note": "", "done": false},
-    {"id": "s2", "time": "10:00", "end": "", "title": "Клиентка в «Мерси»", "category": "client", "note": "", "done": false},
-    {"id": "s5", "time": "12:30", "end": "15:00", "title": "Онлайн-работа: прогрев, сторис, съёмка рилс", "category": "content", "note": "Реквизит дома, снимаем Блок А (≈20 мин)", "done": false},
-    {"id": "s3", "time": "15:15", "end": "16:45", "title": "Ксюша художка (гуашь)", "category": "family", "note": "Забирает Александр, он выходной", "done": false},
-    {"id": "s4", "time": "17:30", "end": "", "title": "Клиентка на снятие", "category": "client", "note": "«Мерси»", "done": false}
+    {"id": "s1", "time": "07:45", "end": "", "title": "Выход с Ксюшей на автобус (7:50)", "category": "family", "note": "Александр работает", "done": false},
+    {"id": "s2", "time": "12:00", "end": "", "title": "Пробный урок, Союзная", "category": "student", "note": "Если подтвердит бронь 500 ₽", "done": false},
+    {"id": "s3", "time": "18:30", "end": "19:30", "title": "Ксюша танцы", "category": "family", "note": "Отвозишь ты, выезд ~17:30", "done": false},
+    {"id": "s4", "time": "20:00", "end": "21:00", "title": "Длинная тренировка", "category": "sport", "note": "", "done": false}
   ],
   "tasks": [
-    {"id": "t1", "title": "Тренировка до 15 минут утром", "done": false},
-    {"id": "t2", "title": "Книга 20-30 минут вечером", "done": false}
+    {"id": "t1", "title": "Короткая тренировка до 15 минут утром", "done": false},
+    {"id": "t2", "title": "Книга 20-30 минут", "done": false}
   ],
   "inbox": [] } }
