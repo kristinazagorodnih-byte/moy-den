@@ -1,18 +1,17 @@
 { "today": {
-  "dayType": "soyuznaya",
+  "dayType": "merci",
   "focus": [
-    {"id": "f1", "title": "Пробный урок 12:00: провести, мягко довести до следующего шага", "done": false},
-    {"id": "f2", "title": "Сторис: свобода/личное, как профессия даёт свой график", "done": false},
-    {"id": "f3", "title": "Доснять рилс Блока А, если вчера не вышло", "done": false}
+    {"id": "f1", "title": "Рабочий день администратором в «Мерси»", "done": false},
+    {"id": "f2", "title": "Перенести пробный девушке с Авито на субботу (текст готов)", "done": false},
+    {"id": "f3", "title": "Лёгкий сторис между делами: свобода/личное", "done": false}
   ],
   "schedule": [
-    {"id": "s1", "time": "07:45", "end": "", "title": "Выход с Ксюшей на автобус (7:50)", "category": "family", "note": "Александр работает", "done": false},
-    {"id": "s2", "time": "12:00", "end": "", "title": "Пробный урок, Союзная", "category": "student", "note": "Если подтвердит бронь 500 ₽", "done": false},
-    {"id": "s3", "time": "18:30", "end": "19:30", "title": "Ксюша танцы", "category": "family", "note": "Отвозишь ты, выезд ~17:30", "done": false},
-    {"id": "s4", "time": "20:00", "end": "21:00", "title": "Длинная тренировка", "category": "sport", "note": "", "done": false}
+    {"id": "s1", "time": "весь день", "end": "", "title": "«Мерси», администратор", "category": "client", "note": "Ресницы и пробные не веду", "done": false},
+    {"id": "s2", "time": "15:15", "end": "", "title": "Забрать Ксюшу", "category": "family", "note": "", "done": false},
+    {"id": "s3", "time": "18:30", "end": "19:30", "title": "Ксюша танцы", "category": "family", "note": "Отвозит Никита, забирает Александр после работы", "done": false},
+    {"id": "s4", "time": "20:00", "end": "21:00", "title": "Длинная тренировка (по силам)", "category": "sport", "note": "", "done": false}
   ],
   "tasks": [
-    {"id": "t1", "title": "Короткая тренировка до 15 минут утром", "done": false},
-    {"id": "t2", "title": "Книга 20-30 минут", "done": false}
+    {"id": "t1", "title": "Книга 20-30 минут", "done": false}
   ],
   "inbox": [] } }
