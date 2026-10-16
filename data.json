@@ -12,6 +12,8 @@
     {"id": "s4", "time": "20:00", "end": "21:00", "title": "Длинная тренировка (по силам)", "category": "sport", "note": "", "done": false}
   ],
   "tasks": [
-    {"id": "t1", "title": "Книга 20-30 минут", "done": false}
+    {"id": "t1", "title": "Купить билет в Петербург", "done": false},
+    {"id": "t2", "title": "Пройти тест по школьной программе на Учи.ру", "done": false},
+    {"id": "t3", "title": "Книга 20-30 минут", "done": false}
   ],
   "inbox": [] } }
