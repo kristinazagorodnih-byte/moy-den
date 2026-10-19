@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Прогрев мини-курса</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<style>
+  :root{
+    --emerald:#0A3A2E; --milk:#F7F2E8; --gold:#B8945A; --ink:#1C1C1A;
+    --pink:#E84D8A; --emerald-soft:#14503E; --line:rgba(10,58,46,.14);
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    font-family:'Golos Text',system-ui,sans-serif; background:var(--milk); color:var(--ink);
+    line-height:1.45; padding:16px 16px calc(32px + env(safe-area-inset-bottom)) 16px;
+    max-width:620px;margin:0 auto;
+  }
+  h1,h2,h3{font-family:'Playfair Display',Georgia,serif;margin:0;font-weight:600}
+  .kicker{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:600}
+  h1{font-size:26px;color:var(--emerald);margin-top:4px;line-height:1.12}
+  .sub{font-size:14px;color:var(--emerald);opacity:.8;margin-top:6px;font-weight:500}
+  .intro{margin-top:14px;background:var(--emerald);color:var(--milk);padding:13px 15px;font-size:13.5px}
+  .intro b{color:#fff}
+  .nav{display:flex;gap:8px;margin:16px 0 4px;flex-wrap:wrap}
+  .nav a{font-size:12.5px;font-weight:600;border:1px solid var(--line);background:#fff;color:var(--emerald);padding:7px 12px;text-decoration:none}
+
+  .card{background:#fff;border:1px solid var(--line);margin-top:14px;padding:14px 15px}
+  .card.launch{border:2px solid var(--pink)}
+  .chead{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap;margin-bottom:9px}
+  .num{font-family:'Playfair Display',serif;font-size:15px;color:var(--gold);font-weight:700}
+  .cdate{font-family:'Playfair Display',serif;font-size:17px;color:var(--emerald)}
+  .ftype{font-size:10.5px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;padding:2px 8px}
+  .ftype.post{background:var(--emerald);color:var(--milk)}
+  .ftype.reel{background:var(--gold);color:#fff}
+  .ftype.stories{background:#fff;color:var(--emerald);border:1px solid var(--emerald)}
+  .ftype.carousel{background:var(--emerald-soft);color:var(--milk)}
+  .ctitle{font-size:16px;color:var(--ink);font-weight:600;margin:2px 0 4px}
+  .cta{font-size:12.5px;color:var(--pink);font-weight:600;margin-bottom:10px}
+  .scr{font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--gold);font-weight:600;margin:8px 0 5px}
+  .text{background:var(--milk);border-left:3px solid var(--gold);padding:11px 13px;font-size:14px;white-space:pre-line}
+  .onscreen{font-size:13px;color:var(--emerald);font-style:italic;margin-bottom:8px}
+  .copy{margin-top:9px;background:transparent;border:1px solid var(--emerald);color:var(--emerald);
+    font-family:inherit;font-size:12px;font-weight:600;padding:7px 14px;cursor:pointer}
+  .copy.ok{background:var(--emerald);color:var(--milk)}
+
+  .todo{background:#fff;border:1px dashed var(--pink);margin-top:22px;padding:14px 15px}
+  .todo h2{font-size:17px;color:var(--pink)}
+  .todo ul{margin:9px 0 0;padding-left:18px}
+  .todo li{font-size:13px;margin-bottom:7px}
+  .credit{margin-top:22px;text-align:center;font-size:11px;color:var(--ink);opacity:.4}
+</style>
+</head>
+<body>
+
+<div class="kicker">Мини-курс «Я попробую дома»</div>
+<h1>Прогрев, 21-31 октября</h1>
+<div class="sub">Запуск 1 ноября · 490 ₽ · 9 касаний за 11 дней</div>
+
+<div class="intro">
+Все тексты уже готовы, бери и выкладывай. Лесенка одна: <b>мини-курс → бесплатный пробный → обучение в Туле</b>. Давления нет: на любой ступеньке можно остановиться. Слово <b>«ДОМА»</b> собирает список тех, кому ты напишешь ссылку 1 ноября.
+</div>
+
+<div class="nav">
+  <a href="../plan/">Контент-доска</a>
+  <a href="../">Мой день</a>
+  <a href="../strategy/">Стратегия</a>
+</div>
+
+<!-- 21.10 -->
+<div class="card">
+  <div class="chead"><span class="num">1 / 9</span><span class="cdate">21.10, ср</span><span class="ftype reel">Рилс</span></div>
+  <div class="ctitle">Купила курс и поняла, что не моё</div>
+  <div class="cta">Призыв: напиши одним словом, чего боишься</div>
+  <div class="onscreen">Текст на экране: «Не твоё? Проверь дома»</div>
+  <div class="scr">Начитка</div>
+  <div class="text">Купила курс и поняла, что не твоё? Это дорогая проверка. Ты отдала деньги, а узнала только одно: монотонная работа тебя выматывает.
+
+В наращивании ресниц это можно проверить дешёво. Одна ресничка, клей и ватный диск. Ты берёшь пинцет, делаешь одно и то же движение много раз и смотришь, как тебе. Спокойно, интересно или хочется бросить.
+
+Я сама через это проходила. Знаю, как страшно тратить деньги, когда они нужны семье.
+
+Поэтому с первого ноября у меня будет мини-курс «Я попробую дома». Сначала проверяешь, потом решаешь, нужно ли тебе обучение.
+
+А чего боишься ты? Напиши в комментариях одним словом.</div>
+  <button class="copy">Скопировать текст</button>
+</div>
+
+<!-- 22.10 -->
+<div class="card">
+  <div class="chead"><span class="num">2 / 9</span><span class="cdate">22.10, чт</span><span class="ftype post">Пост Telegram 🔔</span></div>
+  <div class="ctitle">Я сделала мини-курс, чтобы ты не потеряла деньги</div>
+  <div class="cta">Призыв: напиши в ответ, чего боишься</div>
+  <div class="text">Наращивание ресниц это тонкая монотонная работа. Одним она заходит с первого дня, другим нет. Узнать это лучше до оплаты большого курса, а не после.
+
+Поэтому я записала мини-курс «Я попробую дома». Три урока, которые ты проходишь у себя дома в своём темпе. Сначала блок «что купить и где», потом сами уроки. Главное упражнение: снять ресничку с ленты, окунуть в клей и приклеить на ватный диск. Так ты увидишь, нравится ли тебе такая работа.
+
+Я пришла в профессию, когда осталась с двумя детьми и надо было обеспечивать семью. Рисковать деньгами было нельзя. Для тех, кому страшно тратить, я и делаю сначала проверку.
+
+Открываю 1 ноября, стоит 490 ₽.
+
+Напиши в ответ: чего ты боишься больше всего, когда думаешь про обучение?</div>
+  <button class="copy">Скопировать текст</button>
+</div>
+
+<!-- 24.10 -->
+<div class="card">
+  <div class="chead"><span class="num">3 / 9</span><span class="cdate">24.10, сб</span><span class="ftype stories">Сторис · 5 кадров</span></div>
+  <div class="ctitle">Что внутри (без ссылки)</div>
+  <div class="cta">Призыв: ответ в опросе</div>
+  <div class="text">1. Через неделю открою кое-что для тех, кто сомневается
+2. Мини-курс «Я попробую дома». Свой темп, своя кухня
+3. Сначала блок «что купить и где», потом уроки
+4. Цель не научиться за вечер. Цель понять, твоё это или нет
+5. Опрос: «Ты платила за курс, который не зашёл?» Да / Нет, боюсь</div>
+  <div class="onscreen">Кадр 1 говори в камеру, кадры 2-4 можно подложить под стол с ватными дисками и клеем.</div>
+  <button class="copy">Скопировать текст</button>
+</div>
+
+<!-- 26.10 -->
+<div class="card">
+  <div class="chead"><span class="num">4 / 9</span><span class="cdate">26.10, пн</span><span class="ftype reel">Рилс</span></div>
+  <div class="ctitle">Упражнение, которое проверяет, твоё ли это</div>
+  <div class="cta">Призыв: сохрани</div>
+  <div class="onscreen">Текст на экране: «Ресничка. Клей. Диск»</div>
+  <div class="scr">Начитка</div>
+  <div class="text">Покажу, как за один вечер проверить, твоё ли наращивание.
+
+Берёшь ватный диск. Снимаешь одну ресничку с ленты. Окунаешь в клей и приклеиваешь на диск. Теперь повтори. И ещё раз. И ещё.
+
+Смотри на себя, пока делаешь. Тебе спокойно? Тянет продолжать? Или считаешь минуты, когда это закончится?
+
+Если интересно, значит, дальше есть смысл идти. Если скучно уже в начале, это тоже ответ, и он обошёлся тебе недорого.
+
+Это упражнение из моего мини-курса «Я попробую дома». Сохрани ролик, чтобы вернуться к нему первого ноября.</div>
+  <button class="copy">Скопировать текст</button>
+</div>
+
+<!-- 27.10 -->
+<div class="card">
+  <div class="chead"><span class="num">5 / 9</span><span class="cdate">27.10, вт</span><span class="ftype post">Пост Telegram 🔔</span></div>
+  <div class="ctitle">Что купить заранее</div>
+  <div class="cta">Призыв: сохрани пост</div>
+  <div class="text">Курс начинается с блока «что купить и где купить». Но если хочешь прийти к 1 ноября готовой, вот коротко, что понадобится:
+
+клей. Без него упражнение не получится, поэтому он обязателен
+ватные диски
+ресницы на ленте
+пинцет
+
+Дорогой набор не нужен. Мы не открываем бизнес, мы проверяем, твоё это или нет. Где купить и на что смотреть при выборе, я покажу в первом уроке.
+
+Сохрани пост, чтобы список был под рукой.</div>
+  <button class="copy">Скопировать текст</button>
+  <div class="onscreen">Сверь список с блоком «что купить» в курсе, прежде чем публиковать.</div>
+</div>
+
+<!-- 28.10 -->
+<div class="card">
+  <div class="chead"><span class="num">6 / 9</span><span class="cdate">28.10, ср</span><span class="ftype reel">Рилс</span></div>
+  <div class="ctitle">Вдруг не получится</div>
+  <div class="cta">Призыв: напиши ДОМА</div>
+  <div class="onscreen">Текст на экране: «Вдруг не оправдаю ожидание?»</div>
+  <div class="scr">Начитка</div>
+  <div class="text">Ты думаешь: а вдруг я не смогу оправдать ожидание клиентки?
+
+Давай честно. Первую клиентку я бы тебе и не советовала. Сначала манекен. Потом модель. Клиентка приходит, когда рука уже знает, что делать.
+
+А начинается всё ещё раньше, с одного вечера дома. Без клиентки, без риска и без больших денег.
+
+Первого ноября открываю мини-курс «Я попробую дома». Напиши мне ДОМА, и я напишу тебе в день открытия.</div>
+  <button class="copy">Скопировать текст</button>
+</div>
+
+<!-- 29.10 -->
+<div class="card">
+  <div class="chead"><span class="num">7 / 9</span><span class="cdate">29.10, чт</span><span class="ftype carousel">Карусель</span></div>
+  <div class="ctitle">Мини-курс: подойдёт ли тебе?</div>
+  <div class="cta">Призыв: сохрани и перешли подруге</div>
+  <div class="text">Обложка: «Мини-курс: подойдёт ли тебе?»
+
+Подойдёт, если ты думаешь про ресницы, но боишься потратить деньги зря
+Подойдёт, если ты ни разу не держала пинцет
+Подойдёт, если хочешь проверить, нравится ли тебе монотонная работа
+Не подойдёт, если ждёшь, что за вечер научишься и сразу выйдешь к клиенткам
+Не подойдёт, если нужна готовая профессия без тренировок
+
+Что дальше: открываю 1 ноября, от 490 ₽. Сохрани и перешли подруге.</div>
+  <button class="copy">Скопировать текст</button>
+</div>
+
+<!-- 30.10 -->
+<div class="card">
+  <div class="chead"><span class="num">8 / 9</span><span class="cdate">30.10, пт</span><span class="ftype stories">Сторис · 4 кадра</span></div>
+  <div class="ctitle">Ответы на вопросы</div>
+  <div class="cta">Призыв: напиши ДОМА</div>
+  <div class="text">1. Отвечаю на вопросы про мини-курс
+2. Нужно ли что-то уметь? Нет, начинаем с нуля
+3. Сколько уроков? Три, проходишь в своём темпе
+4. Хочешь ссылку первого ноября? Напиши ДОМА</div>
+  <div class="onscreen">Если в директе есть реальные вопросы, бери их. Если нет, задай вопросник в сторис 29.10.</div>
+  <button class="copy">Скопировать текст</button>
+</div>
+
+<!-- 31.10 -->
+<div class="card">
+  <div class="chead"><span class="num">9 / 9</span><span class="cdate">31.10, сб</span><span class="ftype post">Пост Telegram 🔔</span></div>
+  <div class="ctitle">Завтра открываю</div>
+  <div class="cta">Призыв: напиши ДОМА</div>
+  <div class="text">Завтра открываю мини-курс «Я попробую дома».
+
+Если ты давно смотришь ролики про наращивание и думаешь «а вдруг это моё», завтра можно проверить. Без риска потратить деньги на большой курс и понять, что работа тебе не подходит.
+
+Что будет: блок «что купить и где», три урока и упражнение с клеем и ватным диском. Стоит 490 ₽.
+
+Чтобы уроки были под рукой, купи клей и ватные диски сегодня. Список в посте от 27 октября.
+
+Я сама прошла путь от «боюсь потратить деньги» до своей профессии, поэтому знаю, зачем нужна проверка до оплаты.
+
+Напиши ДОМА, и завтра утром пришлю ссылку.</div>
+  <button class="copy">Скопировать текст</button>
+</div>
+
+<!-- 1.11 launch -->
+<div class="card launch">
+  <div class="chead"><span class="num">🚀</span><span class="cdate">1.11, вс</span><span class="ftype post">Запуск</span></div>
+  <div class="ctitle">Открываем мини-курс</div>
+  <div class="text">Утром пишу по списку «ДОМА»: всем, кто написал это слово, уходит ссылка на оплату (490 ₽) и доступ к курсу.
+
+Подготовить заранее: ссылку Prodamus и закрытый канал/доступ с уроками. Как будет готово, скинь мне, помогу собрать.</div>
+</div>
+
+<div class="todo">
+  <h2>Сверить до публикации</h2>
+  <ul>
+    <li>Сколько видеоуроков в курсе по факту: в текстах стоит «три урока», в твоих записях встречалось «приветствие + 5 уроков + финал». На чём остановимся?</li>
+    <li>Список покупок для поста 27.10: клей, ватные диски, ресницы на ленте, пинцет. Всё верно, ничего не добавить?</li>
+    <li>Ссылка Prodamus и доступ к урокам к 1.11.</li>
+  </ul>
+</div>
+
+<div class="credit">Аркадий 🪄 тексты одобрены 14.10, собрано 19.10</div>
+
+<script>
+(function(){
+  document.querySelectorAll('.copy').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var card = btn.closest('.card');
+      var parts = [];
+      var t = card.querySelector('.ctitle'); if(t) parts.push(t.innerText.trim());
+      card.querySelectorAll('.text').forEach(function(el){ parts.push(el.innerText.trim()); });
+      var txt = parts.join('\n\n');
+      var done = function(){ btn.textContent='Скопировано ✓'; btn.classList.add('ok');
+        setTimeout(function(){ btn.textContent='Скопировать текст'; btn.classList.remove('ok'); },1600); };
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(txt).then(done, function(){ fallback(txt); done(); });
+      } else { fallback(txt); done(); }
+    });
+  });
+  function fallback(txt){
+    try{ var ta=document.createElement('textarea'); ta.value=txt; ta.style.position='fixed'; ta.style.opacity='0';
+      document.body.appendChild(ta); ta.select(); document.execCommand('copy'); document.body.removeChild(ta); }catch(e){}
+  }
+  try{ if(window.Telegram && Telegram.WebApp){ Telegram.WebApp.ready(); Telegram.WebApp.expand(); } }catch(e){}
+})();
+</script>
+</body>
+</html>
